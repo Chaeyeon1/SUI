@@ -14,6 +14,7 @@
     "generate-css": "postcss src/styles/tailwind.css -o public/main.css --watch"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -28,7 +29,7 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
-    "@types/react": "^18.0.14",
+    "@types/react": "^18.2.14",
     "@types/react-dom": "^18.0.5",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
