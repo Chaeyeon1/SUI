@@ -2,8 +2,8 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'contained' | 'outlined';
-  color?: 'default' | 'primary' | 'secondary';
+  variant?: 'contained' | 'outlined' | 'text';
+  color?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -18,19 +18,27 @@ const sizeStyles = {
 const variantStyles = {
   contained: 'border border-transparent',
   outlined: 'bg-transparent border',
+  text: 'bg-transparent border-transparent',
 };
 
 const colorStyles = {
-  contained: {
-    default: 'text-neutral-900 bg-gray-200 hover:bg-gray-300 ',
+  text: {
     primary:
-      'text-white bg-primary-default hover:bg-primary-600 active:bg-primary-500',
-    secondary: 'text-neutral-900 bg-secondary-default hover:bg-secondary-500',
+      'text-black bg-transparent hover:bg-primary-50 active:bg-primary-100',
+    secondary:
+      'text-black bg-transparent hover:bg-secondary-50 active:bg-secondary-100',
+  },
+  contained: {
+    primary:
+      'text-white bg-primary-default hover:bg-primary-600 active:bg-primary-500 rounded-lg',
+    secondary:
+      'text-white bg-secondary-default hover:bg-secondary-600 active:bg-secondary-500 rounded-lg',
   },
   outlined: {
-    default: 'text-gray-600 border-gray-600 hover:bg-gray-200',
-    primary: 'text-primary-default border-primary-default hover:bg-primary-50',
-    secondary: 'text-secondary-800 border-secondary-800 hover:bg-secondary-100',
+    primary:
+      'text-primary-default border-primary-default hover:bg-primary-50 active:bg-primary-100',
+    secondary:
+      'text-secondary-500 border-secondary-500 hover:bg-secondary-50 active:bg-secondary-100',
   },
 };
 
@@ -38,12 +46,13 @@ const disabledSyles = 'cursor-default pointer-events-none';
 const disabledVariantSyles = {
   contained: 'text-gray-300 bg-gray-100',
   outlined: 'text-gray-300 border-gray-300',
+  text: 'text-gray-300 bg-gray-100',
 };
 
 export function Button({
   className,
   variant = 'contained',
-  color = 'default',
+  color = 'primary',
   size = 'medium',
   disabled = false,
   children,

@@ -39,21 +39,19 @@ export const ButtonVariationsStory = () => {
 
       <h2 className="text-xl mt-6">Contained Buttons</h2>
       <div className="mt-1">
-        <Button>Default</Button>
-        <Button className="ml-2" color="primary">
+        <Button className="ml-2" color="primary" variant="contained">
           Primary
         </Button>
-        <Button className="ml-2" color="secondary">
+        <Button className="ml-2" color="secondary" variant="contained">
           Secondary
         </Button>
-        <Button className="ml-2" disabled>
+        <Button className="ml-2" variant="contained" disabled>
           Disabled
         </Button>
       </div>
 
       <h2 className="text-xl mt-6">Outlined Buttons</h2>
       <div className="mt-1">
-        <Button variant="outlined">Default</Button>
         <Button className="ml-2" variant="outlined" color="primary">
           Primary
         </Button>
@@ -61,6 +59,19 @@ export const ButtonVariationsStory = () => {
           Secondary
         </Button>
         <Button className="ml-2" variant="outlined" disabled>
+          Disabled
+        </Button>
+      </div>
+
+      <h2 className="text-xl mt-6">Text Buttons</h2>
+      <div className="mt-1">
+        <Button className="ml-2" variant="text" color="primary">
+          Primary
+        </Button>
+        <Button className="ml-2" variant="text" color="secondary">
+          Secondary
+        </Button>
+        <Button className="ml-2" variant="text" disabled>
           Disabled
         </Button>
       </div>
@@ -107,19 +118,6 @@ export const ButtonVariationsStory = () => {
         >
           Large
         </Button>
-      </div>
-
-      <h2 className="text-xl mt-6">Link Buttons</h2>
-      <div className="mt-2">
-        <a className="btn-link" href="https://amazon.com">
-          Amazon
-        </a>
-        <a className="ml-2 btn-link" href="https://apple.com">
-          Apple
-        </a>
-        <a className="ml-2 btn-link" href="https://store.google.com">
-          Google
-        </a>
       </div>
     </div>
   );
