@@ -22,8 +22,9 @@ const variantStyles = {
 
 const colorStyles = {
   contained: {
-    default: 'text-neutral-900 bg-gray-200 hover:bg-gray-300',
-    primary: 'text-white bg-primary-default hover:bg-primary-900',
+    default: 'text-neutral-900 bg-gray-200 hover:bg-gray-300 ',
+    primary:
+      'text-white bg-primary-default hover:bg-primary-600 active:bg-primary-500',
     secondary: 'text-neutral-900 bg-secondary-default hover:bg-secondary-500',
   },
   outlined: {

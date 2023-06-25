@@ -50,6 +50,30 @@ const colors = {
     800: '#243b53',
     900: '#102a43',
   },
+  primary: {
+    50: '#FFF3F9',
+    100: '#F2CEDF',
+    200: '#E59DC0',
+    300: '#D86DA0',
+    400: '#CB3C81',
+    500: '#BE0B61',
+    600: '#98094E',
+    700: '#72073A',
+    800: '#4C0427',
+    900: '#260213',
+  },
+  secondary: {
+    50: '#EAF1F1',
+    100: '#D3E0E2',
+    200: '#A8C2C5',
+    300: '#7CA3A9',
+    400: '#51858C',
+    500: '#25666F',
+    600: '#1E5259',
+    700: '#163D43',
+    800: '#0F292C',
+    900: '#071416',
+  },
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -61,12 +85,12 @@ module.exports = {
       colors: {
         gray: colors.gray,
         primary: {
-          ...colors.blue,
-          default: colors.blue['700'],
+          ...colors.primary,
+          default: colors.primary['500'],
         },
         secondary: {
-          ...colors.yellow,
-          default: colors.yellow['400'],
+          ...colors.secondary,
+          default: colors.secondary['500'],
         },
         neutral: {
           ...colors.neutral,
