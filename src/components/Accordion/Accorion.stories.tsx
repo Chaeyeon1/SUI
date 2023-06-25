@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Accordion } from './Accordion';
+import { Accordion, AccordionSummary } from './Accordion';
 
 export default {
   title: 'Components/Accordion',
-  component: Accordion,
+  component: AccordionSummary,
 } as Meta;
 
 const Template: Story = (args) => (
-  <Accordion
+  <AccordionSummary
     className={args.className}
     color={args.color}
     size={args.size}
@@ -16,13 +16,15 @@ const Template: Story = (args) => (
     onClick={args.onClick}
   >
     {args.text}
-  </Accordion>
+  </AccordionSummary>
 );
 
 export const ABC = () => {
   return (
     <div className="w-64">
-      <Accordion title={'assadfdf'}></Accordion>
+      <Accordion>
+        <AccordionSummary title={'assadfdf'}></AccordionSummary>
+      </Accordion>
     </div>
   );
 };
