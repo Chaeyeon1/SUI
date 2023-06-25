@@ -10,7 +10,6 @@ export default {
 const Template: Story = (args) => (
   <Accordion
     className={args.className}
-    variant={args.variant}
     color={args.color}
     size={args.size}
     disabled={args.disabled}
@@ -21,5 +20,9 @@ const Template: Story = (args) => (
 );
 
 export const ABC = () => {
-  return <Accordion>assadfdf</Accordion>;
+  return (
+    <div className="w-64">
+      <Accordion title={'assadfdf'}></Accordion>
+    </div>
+  );
 };
