@@ -39,35 +39,36 @@ const Template: Story = (args) => (
         <h1 className="text-2xl font-medium mb-2">TextFields</h1>
         <h2 className="text-xl mt-6 ">outlined TextFields</h2>
             <div className="flex items-end gap-4">
-            <TextField  color= 'primary' label='label' >
+            <TextField  variant='outlined' color= 'primary' label='label' placeholder='sudol'>
                 Primary
             </TextField>
-            <TextField  color= 'secondary'>
+            <TextField  variant='outlined' color= 'secondary' placeholder='sinddong'>
                 Secondary
             </TextField>
-            <TextField  disabled>
+            <TextField variant='outlined' disabled>
+                Disabled
+            </TextField>
+            </div>
+
+
+        <h2 className="text-xl mt-6 ">underline TextFields</h2>
+            <div className="flex items-end gap-4">
+            <TextField  variant='underline' color= 'primary' label='label' placeholder='very'>
+                Primary
+            </TextField>
+            <TextField  variant='underline' color= 'secondary' placeholder='good'>
+                Secondary
+            </TextField>
+            <TextField  variant='underline' disabled>
                 Disabled
             </TextField>
             </div>
   
-        {/* <h2 className="text-xl mt-6">underline TextFields</h2>
-        <div className="mt-1">
-          <TextField variant="outlined">Default</TextField>
-          <TextField className="ml-2" variant="outlined" color="primary">
-            Primary
-          </TextField>
-          <TextField className="ml-2" variant="outlined" color="secondary">
-            Secondary
-          </TextField>
-          <TextField className="ml-2" variant="outlined" disabled>
-            Disabled
-          </TextField>
-        </div> */}
   
   <h2 className="text-xl mt-6">Sizes</h2>
         <div className="mt-1">
           <div className="flex items-end gap-4">
-          <TextField variant="outlined" color="primary" size="small">
+          <TextField variant="outlined" color="primary" size="small" placeholder='small'>
             Small
           </TextField>
           <TextField
@@ -75,6 +76,7 @@ const Template: Story = (args) => (
             variant="outlined"
             color="primary"
             size="medium"
+            placeholder='medium'
           >
             Medium
           </TextField>
@@ -83,32 +85,13 @@ const Template: Story = (args) => (
             variant="outlined"
             color="primary"
             size="large"
+            placeholder='large'
           >
             Large
           </TextField>
           </div>
         </div>
-        {/* <div className="mt-2">
-          <TextField variant="underline" color="primary" size="small">
-            Small
-          </TextField>
-          <TextField
-            className="ml-2"
-            variant="underline"
-             color="primary"
-            size="medium"
-          >
-            Medium
-          </TextField>
-          <TextField
-            className="ml-2"
-            variant="underline"
-             color="primary"
-            size="large"
-          >
-            Large
-          </TextField>
-        </div> */}
+        
   
 
       </div>

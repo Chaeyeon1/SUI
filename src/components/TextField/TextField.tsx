@@ -8,26 +8,26 @@ interface TextfieldProps
   label?: string;
 }
   
-  const baseStyles = 'font-medium rounded border border-gray-500 focus:outline-none focus:border-solid focus:border-2';
+  const baseStyles = 'font-medium rounded  focus:outline-none ';
   
   const sizeStyles = {
-    small: 'text-xs px-2.5 py-1.5 ',
+    small: 'text-xs px-2.5 py-1.5',
     medium: 'text-sm leading-4 px-3 py-2',
     large: 'text-sm px-4 py-2',
   };
   
   const variantStyles = {
-    underline: 'text-black bg-white ',
-    outlined: 'text-black bg-white ',
+    underline: 'text-black focus:border-solid focus:border-2',
+    outlined: 'text-black border border-gray-500 focus:border-solid focus:border-2',
   };
   
   const colorStyles = {
     underline: {
-      primary: 'text-black',
-      secondary: 'text-black',
+      primary: 'text-black focus:border-primary-500 bg-white border-b-4 border-primary-500',
+      secondary: 'text-black focus:border-secondary-500 bg-white border-b-4 border-secondary-500',
     },
     outlined: {
-        primary: 'focus:border-primary-500',
+        primary:'focus:border-primary-500',
         secondary: 'focus:border-secondary-500',
     },
   };

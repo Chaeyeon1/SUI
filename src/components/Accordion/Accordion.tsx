@@ -6,52 +6,87 @@ interface AccordionProps
   color?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
-  open?: boolean;
+  value?: boolean;
+  auto?: boolean;
   title?: string;
 }
 
-const baseStyles =
-  'flex align-middle justify-between cursor-pointer rounded-t font-medium shadow-gray-300 items-center';
+interface AccordionSummaryProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
+  color: 'primary' | 'secondary';
+  disabled?: boolean;
+  open?: boolean;
+  title?: string;
+  value: boolean;
+}
 
-const sizeStyles = {
-  small: 'text-xs px-2.5 py-1.5',
-  medium: 'text-sm leading-4 px-3 py-2',
-  large: 'text-sm px-4 py-2',
-};
+const baseStyles =
+  'flex align-middle w-full justify-between cursor-pointer rounded-t font-medium shadow-gray-300 items-center p-4';
 
 const colorStyles = {
   primary:
     'text-black shadow-md shadow-gray-300 hover:bg-primary-50 active:bg-primary-100',
   secondary:
-    'text-black bg-transparent hover:bg-secondary-50 active:bg-secondary-100',
+    'text-black shadow-md shadow-gray-300 hover:bg-secondary-50 active:bg-secondary-100',
 };
 
-const disabledSyles = 'cursor-default pointer-events-none';
+const disabledSyles = 'cursor-default pointer-events-none bg-gray-300';
 
-export const Accordion = ({ children, ...props }: AccordionProps) => {
-  return <div {...props}>{children}</div>;
+export const Accordion = ({
+  className,
+  children,
+  title,
+  auto,
+  value,
+  color = 'primary',
+  disabled,
+  ...props
+}: AccordionProps) => {
+  const [open, setOpen] = useState(false);
+
+  const accordionClass = disabled
+    ? clsx(className, 'min-w-fit', disabledSyles)
+    : clsx(className, 'min-w-fit', colorStyles[color]);
+  return (
+    <div className={accordionClass} {...props}>
+      {auto ? (
+        <>
+          <AccordionSummary
+            title={title}
+            color={color}
+            onClick={() => setOpen(!open)}
+            value={open}
+          />
+          <AccordionDetail value={open}>{children}</AccordionDetail>
+        </>
+      ) : (
+        children
+      )}
+    </div>
+  );
 };
 
 export const AccordionSummary = ({
   className,
   open = false,
   color = 'primary',
-  size = 'medium',
   disabled = false,
+  value,
   children,
   title,
   ...props
-}: AccordionProps) => {
-  const [close, setClose] = useState(false);
+}: AccordionSummaryProps) => {
   const accordionClass = disabled
-    ? clsx(className, baseStyles, sizeStyles[size], disabledSyles)
-    : clsx(className, baseStyles, sizeStyles[size], colorStyles[color]);
-
+    ? clsx(className, baseStyles, disabledSyles)
+    : clsx(className, baseStyles, colorStyles[color]);
+  // context로 하기
   return (
-    <div onClick={() => setClose(!close)} className={accordionClass} {...props}>
-      {title}
-      {children}
-      {close ? (
+    <div className={accordionClass} {...props}>
+      <div className="flex justify-start font-semibold text-base">
+        <div className="mr-2">{title}</div>
+        {children}
+      </div>
+      {!value ? (
         <svg
           width="24"
           height="24"
@@ -79,5 +114,31 @@ export const AccordionSummary = ({
         </svg>
       )}
     </div>
+  );
+};
+
+export const AccordionDetail = ({
+  className,
+  color = 'primary',
+  size = 'medium',
+  disabled = false,
+  children,
+  title,
+  value,
+  ...props
+}: AccordionProps) => {
+  return (
+    <>
+      {!value ? (
+        <></>
+      ) : (
+        <div
+          {...props}
+          className="bg-white w-full shadow-md shadow-gray-300 p-4"
+        >
+          {children}
+        </div>
+      )}
+    </>
   );
 };

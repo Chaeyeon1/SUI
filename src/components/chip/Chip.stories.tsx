@@ -42,50 +42,36 @@ export const ChipVariationsStory = () => {
       <div className="flex items-end gap-4">
         <Chip className="ml-2" color="primary" variant="contained" text='primary'>
         </Chip>
-        <Chip className="ml-2" color="secondary" variant="contained" text='se'>
+        <Chip className="ml-2" color="secondary" variant="contained" text='secondary'>
         </Chip>
         <Chip className="ml-2" variant="contained" disabled text='disabled'>
         </Chip>
         </div>
       </div>
 
-      {/* <h2 className="text-xl mt-6">Outlined Chips</h2>
+      <h2 className="text-xl mt-6">Outlined Chips</h2>
       <div className="mt-1">
-        <Chip className="ml-2" variant="outlined" color="primary">
-          Primary
+      <div className="flex items-end gap-4">
+        <Chip className="ml-2" variant="outlined" color="primary" text='primary'>
         </Chip>
-        <Chip className="ml-2" variant="outlined" color="secondary">
-          Secondary
+        <Chip className="ml-2" variant="outlined" color="secondary" text='secondary'>
         </Chip>
-        <Chip className="ml-2" variant="outlined" disabled>
-          Disabled
+        <Chip className="ml-2" variant="outlined" disabled text='disabled'>
         </Chip>
-      </div> */}
+        </div>
+      </div>
 
-      {/* <h2 className="text-xl mt-6">Sizes</h2>
+      <h2 className="text-xl mt-6">removable</h2>
       <div className="mt-1">
-        <Chip variant="contained" color="primary" size="small">
-          Small
+      <div className="flex items-end gap-4">
+        <Chip className="ml-2" variant="contained" color="primary" text='primary' removable={true}>
         </Chip>
-        <Chip
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="medium"
-        >
-          Medium
+        <Chip className="ml-2" variant="outlined" color="secondary" text='secondary' removable={true}>
         </Chip>
-        <Chip
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="large"
-        >
-          Large
-        </Chip> */}
-      {/* </div> */}
-      
- 
+        <Chip className="ml-2" variant="outlined" disabled text='disabled' removable={true}>
+        </Chip>
+        </div>
+      </div>
     </div>
   );
 };
