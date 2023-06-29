@@ -11,6 +11,7 @@ export default {
 const Template: Story = (args) => (
     <TextField
       className={args.className}
+      label={args.label}
       variant={args.variant}
       color={args.color}
       size={args.size}
