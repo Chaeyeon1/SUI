@@ -72,8 +72,6 @@ export const ChipVariationsStory = () => {
         </Chip>
         </div>
       </div>
-      
- 
     </div>
   );
 };

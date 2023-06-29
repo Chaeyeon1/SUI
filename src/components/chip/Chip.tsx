@@ -37,7 +37,6 @@ interface ChipProps
     const chipClass = disabled
     ? clsx(className, baseStyles, disabledSyles)
     : clsx(className, baseStyles, colorStyles[variant][color]);
-  
     return (
             <div className={chipClass} {...props}>
               <div className='flex gap-2 pt-0.5'>
