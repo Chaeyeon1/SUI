@@ -125,7 +125,7 @@ module.exports = {
           default: colors.blue['500'],
         },
         warning: {
-          ...colors.orange['500'],
+          ...colors.orange,
           default: colors.orange['500'],
         },
       },

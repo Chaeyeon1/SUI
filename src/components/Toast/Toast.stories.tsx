@@ -19,7 +19,7 @@ ToastStory.storyName = 'Toast';
 ToastStory.args = {
   className: '',
   variant: 'contained',
-  type: 'error',
+  type: 'success',
   size: 'medium',
 };
 
@@ -31,6 +31,15 @@ export const ToastVariationsStory = () => {
       <div className="flex items-end gap-4">
         <Toast variant="contained" type="success" size="small">
           성공했습니다.
+        </Toast>
+        <Toast variant="contained" type="error" size="small">
+          실패했습니다.
+        </Toast>
+        <Toast variant="contained" type="info" size="small">
+          알립니다.
+        </Toast>
+        <Toast variant="contained" type="warning" size="small">
+          위험합니다.
         </Toast>
       </div>
     </div>
