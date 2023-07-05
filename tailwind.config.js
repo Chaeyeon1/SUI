@@ -74,6 +74,22 @@ const colors = {
     800: '#0F292C',
     900: '#071416',
   },
+  green: {
+    100: '#E9F9DC',
+    500: '#03A400',
+  },
+  red: {
+    100: '#F9DFDC',
+    500: '#F44336',
+  },
+  blue: {
+    100: '#DCEBF9',
+    500: '#2196F3',
+  },
+  orange: {
+    100: '#F9EADC',
+    500: '#ED6C02',
+  },
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -95,6 +111,22 @@ module.exports = {
         neutral: {
           ...colors.neutral,
           default: colors.neutral['900'],
+        },
+        success: {
+          ...colors.green,
+          default: colors.green['500'],
+        },
+        error: {
+          ...colors.red,
+          default: colors.red['500'],
+        },
+        info: {
+          ...colors.blue,
+          default: colors.blue['500'],
+        },
+        warning: {
+          ...colors.orange,
+          default: colors.orange['500'],
         },
       },
       fontFamily: {
