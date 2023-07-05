@@ -1,6 +1,5 @@
 import * as React from 'react';
 import clsx from 'clsx';
-// import SuccessIcon from '../../../public/icon/public/icon/AlertCheckCircle.svg';
 
 interface ToastProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
