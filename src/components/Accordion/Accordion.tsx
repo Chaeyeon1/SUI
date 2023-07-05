@@ -15,7 +15,6 @@ interface AccordionSummaryProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
   color: 'primary' | 'secondary';
   disabled?: boolean;
-  open?: boolean;
   title?: string;
   value: boolean;
 }
@@ -47,6 +46,7 @@ export const Accordion = ({
   const accordionClass = disabled
     ? clsx(className, 'min-w-fit', disabledSyles)
     : clsx(className, 'min-w-fit', colorStyles[color]);
+
   return (
     <div className={accordionClass} {...props}>
       {auto ? (
@@ -68,7 +68,6 @@ export const Accordion = ({
 
 export const AccordionSummary = ({
   className,
-  open = false,
   color = 'primary',
   disabled = false,
   value,
@@ -79,14 +78,14 @@ export const AccordionSummary = ({
   const accordionClass = disabled
     ? clsx(className, baseStyles, disabledSyles)
     : clsx(className, baseStyles, colorStyles[color]);
-  // context로 하기
+
   return (
     <div className={accordionClass} {...props}>
       <div className="flex justify-start font-semibold text-base">
         <div className="mr-2">{title}</div>
         {children}
       </div>
-      {!value ? (
+      {value ? (
         <svg
           width="24"
           height="24"
