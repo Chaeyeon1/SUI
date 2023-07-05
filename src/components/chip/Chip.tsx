@@ -8,14 +8,8 @@ interface ChipProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
   disabled?: boolean;
   text?: string;
 }
+
 const baseStyles = 'font-medium rounded  h-9 rounded-full px-3 pt-1 w-fit';
-
-const variantStyles = {
-  contained: 'text-black',
-  outlined: 'text-black',
-};
-
-const removable = {};
 
 const disabledSyles = 'cursor-default pointer-events-none';
 
