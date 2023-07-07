@@ -3,7 +3,7 @@ import * as React from 'react';
 
 interface DialogProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
-  color?: 'primary' | 'secondary' | 'lightPrimary' | 'lightSecondary';
+  color?: 'primary' | 'secondary' | 'lightPrimary' | 'lightSecondary' | 'basic';
   title?: string;
   content?: string;
   action1?: string;
@@ -19,6 +19,7 @@ const colorStyles = {
   secondary: 'bg-secondary-500 text-white',
   lightPrimary: 'bg-primary-50 text-black',
   lightSecondary: 'bg-secondary-50 text-black',
+  basic: 'bg-white text-black',
 };
 
 const sizeStyles = {
@@ -42,7 +43,7 @@ const textStyles = {
 const actionBaseStyles = {
   small: 'cursor-pointer text-base',
   medium: 'cursor-pointer text-lg',
-  large: 'cursor-pointe text-xlr',
+  large: 'cursor-pointer text-xl',
 };
 
 const action1Styles = {
@@ -50,6 +51,7 @@ const action1Styles = {
   secondary: '',
   lightPrimary: 'text-green-800',
   lightSecondary: 'text-green-800',
+  basic: 'text-green-800',
 };
 
 const action2Styles = {
@@ -57,6 +59,7 @@ const action2Styles = {
   secondary: '',
   lightPrimary: 'text-red-600',
   lightSecondary: 'text-red-600',
+  basic: 'text-red-600',
 };
 
 export function Dialog({
@@ -81,11 +84,11 @@ export function Dialog({
     <div className={dialogClass} {...props}>
       <div className={clsx(titleStyles[size])}>{title}</div>
       <div className={clsx(textStyles[size])}>{content}</div>
-      <div className="flex justify-end gap-3">
+      <div className="flex justify-end gap-4">
         <div className={clsx(action1Styles[color], actionBaseStyles[size])}>
           {action1}
         </div>
-        <div className={clsx(action2Styles[color], actionBaseStyles)}>
+        <div className={clsx(action2Styles[color], actionBaseStyles[size])}>
           {action2}
         </div>
       </div>

@@ -83,6 +83,14 @@ export const DialogVariationsStory = () => {
           action1="action1"
           action2="action2"
         ></Dialog>
+        <Dialog
+          color="basic"
+          size="small"
+          title="title"
+          content="basic"
+          action1="action1"
+          action2="action2"
+        ></Dialog>
       </div>
       <h2 className="text-xl mt-6 ">size</h2>
       <div className="flex items-end gap-4">
