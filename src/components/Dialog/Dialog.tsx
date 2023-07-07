@@ -23,9 +23,9 @@ const colorStyles = {
 };
 
 const sizeStyles = {
-  small: 'w-72 h-24 py-3 px-5',
-  medium: 'w-80 h-36 p-6',
-  large: 'w-96 h-44 p-8',
+  small: 'min-w-[250px] w-fit h-24 py-3 px-5 ',
+  medium: 'min-w-[350px] w-fit h-36 p-6',
+  large: 'min-w-[450px] w-fit h-44 p-8',
 };
 
 const titleStyles = {

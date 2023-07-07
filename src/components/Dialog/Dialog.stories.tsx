@@ -34,17 +34,6 @@ DialogStory.args = {
   action2: 'action',
 };
 
-export const ChipStory = Template.bind({});
-ChipStory.storyName = 'Dialog';
-ChipStory.args = {
-  className: '',
-  variant: 'contained',
-  color: 'primary',
-  size: 'medium',
-  disabled: false,
-  text: 'Chip',
-};
-
 export const DialogVariationsStory = () => {
   return (
     <div className="card max-w-800 p-3">
@@ -114,7 +103,7 @@ export const DialogVariationsStory = () => {
           color="lightSecondary"
           size="large"
           title="title"
-          content="light secondary"
+          content="large"
           action1="action1"
           action2="action2"
         ></Dialog>
