@@ -34,7 +34,7 @@ const disabledSyles = 'cursor-default pointer-events-none bg-gray-300';
 export const Accordion = ({
   className,
   children,
-  text: title,
+  text,
   auto,
   value,
   color = 'primary',
@@ -52,7 +52,7 @@ export const Accordion = ({
       {auto ? (
         <>
           <AccordionSummary
-            text={title}
+            text={text}
             color={color}
             onClick={() => setOpen(!open)}
             value={open}
