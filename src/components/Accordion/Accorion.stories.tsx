@@ -14,7 +14,7 @@ const Template: Story = (args) => (
     color={args.color}
     disabled={args.disabled}
     onClick={args.onClick}
-    title={args.title}
+    text={args.title}
     auto
   />
 );
@@ -41,12 +41,12 @@ export const Preview = () => {
             color="primary"
             onClick={() => setOpen(!open)}
             value={open}
-            title={'아코디언'}
+            text={'아코디언'}
           />
           <AccordionDetail value={open}>아코디언입니다.</AccordionDetail>
         </Accordion>
 
-        <Accordion auto className="w-96" title="자동 아코디언">
+        <Accordion auto className="w-96" text="자동 아코디언">
           아코디언입니다.
         </Accordion>
       </div>
@@ -57,7 +57,7 @@ export const Preview = () => {
             color="secondary"
             onClick={() => setOpen2(!open2)}
             value={open2}
-            title={'아코디언'}
+            text={'아코디언'}
           />
           <AccordionDetail value={open2}>아코디언입니다.</AccordionDetail>
         </Accordion>
@@ -65,7 +65,7 @@ export const Preview = () => {
           color="secondary"
           auto
           className="w-96 mb-4"
-          title="자동 아코디언"
+          text="자동 아코디언"
         >
           아코디언입니다.
         </Accordion>
@@ -75,7 +75,7 @@ export const Preview = () => {
           disabled
           auto
           className="w-96"
-          title="자동 아코디언"
+          text="자동 아코디언"
         >
           아코디언입니다.
         </Accordion>
