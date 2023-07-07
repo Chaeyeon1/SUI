@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { Menu } from './Menu';
+import { Menu, MenuItem } from './Menu';
+import Star from '../../assets/star.svg';
 
 export default {
   title: 'Components/Menu',
@@ -23,18 +24,38 @@ MenuStory.args = {
   text: 'Chip',
 };
 
-export const Preview = () => {
+export const MenuVariations = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h1 className="text-2xl font-medium mb-2">Chips</h1>
+      <h1 className="text-2xl font-medium mb-2">Menu</h1>
 
       <h2 className="text-xl mt-6">Contained Chips</h2>
       <div className="mt-1">
-        <div className="flex items-end gap-4">
-          <Menu className="ml-2" color="primary" text="primary"></Menu>
-          <Menu className="ml-2" color="secondary" text="secondary"></Menu>
-          <Menu className="ml-2" disabled text="disabled"></Menu>
-        </div>
+        <MenuItem icon={<img src={Star} />} text="Menu" />
+      </div>
+    </div>
+  );
+};
+
+export const MenuItemVariations = () => {
+  return (
+    <div className="card max-w-800 p-3">
+      <h1 className="text-2xl font-medium mb-2">Menu Item</h1>
+
+      <h2 className="text-xl mt-6">Icon</h2>
+      <div className="mt-1 flex gap-4">
+        <MenuItem text={'Hello'} />
+        <MenuItem icon={<img src={Star} />} text={'Hello'} />
+      </div>
+
+      <h2 className="text-xl mt-6">Color</h2>
+      <div className="mt-1 flex gap-4">
+        <MenuItem icon={<img src={Star} />} color="primary" text={'Primary'} />
+        <MenuItem
+          icon={<img src={Star} />}
+          color="secondary"
+          text={'Secondary'}
+        />
       </div>
     </div>
   );
