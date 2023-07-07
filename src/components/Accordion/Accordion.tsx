@@ -8,14 +8,14 @@ interface AccordionProps
   disabled?: boolean;
   value?: boolean;
   auto?: boolean;
-  title?: string;
+  text?: string;
 }
 
 interface AccordionSummaryProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
   color: 'primary' | 'secondary';
   disabled?: boolean;
-  title?: string;
+  text?: string;
   value: boolean;
 }
 
@@ -34,7 +34,7 @@ const disabledSyles = 'cursor-default pointer-events-none bg-gray-300';
 export const Accordion = ({
   className,
   children,
-  title,
+  text,
   auto,
   value,
   color = 'primary',
@@ -52,7 +52,7 @@ export const Accordion = ({
       {auto ? (
         <>
           <AccordionSummary
-            title={title}
+            text={text}
             color={color}
             onClick={() => setOpen(!open)}
             value={open}
@@ -72,7 +72,7 @@ export const AccordionSummary = ({
   disabled = false,
   value,
   children,
-  title,
+  text: title,
   ...props
 }: AccordionSummaryProps) => {
   const accordionClass = disabled
@@ -122,7 +122,7 @@ export const AccordionDetail = ({
   size = 'medium',
   disabled = false,
   children,
-  title,
+  text: title,
   value,
   ...props
 }: AccordionProps) => {
