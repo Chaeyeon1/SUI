@@ -4,7 +4,7 @@ export interface MenuProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
   color?: 'primary' | 'secondary';
   text?: string;
-  array?: any;
+  array?: { id: number; content: string }[];
 }
 
 export interface MenuItemProps

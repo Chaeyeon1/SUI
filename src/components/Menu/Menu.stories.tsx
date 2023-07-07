@@ -31,7 +31,12 @@ export const MenuVariations = () => {
 
       <h2 className="text-xl mt-6">Contained Chips</h2>
       <div className="mt-1">
-        <MenuItem icon={<img src={Star} />} text="Menu" />
+        <Menu
+          array={[
+            { id: 0, content: 'chae' },
+            { id: 1, content: 'yeon' },
+          ]}
+        />
       </div>
     </div>
   );

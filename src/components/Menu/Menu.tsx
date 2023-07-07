@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { MenuItemProps, MenuProps } from './Menu.type';
-import { baseStyles, colorStyles } from './Menu.style';
+import { baseStyles, colorStyles, menuBaseStyles } from './Menu.style';
 import { hoverStyles } from '../util/commonStyle';
 
 export const Menu = ({
@@ -9,13 +9,21 @@ export const Menu = ({
   color = 'primary',
   children,
   text,
+  array,
   ...props
 }: MenuProps) => {
-  const menuClass = clsx(className, 'min-w-fit', colorStyles[color]);
+  const menuClass = clsx(
+    className,
+    'min-w-fit',
+    menuBaseStyles,
+    colorStyles[color]
+  );
 
   return (
-    <div {...props} className={menuClass}>
-      {children}
+    <div className={menuClass}>
+      {array?.map((arr) => {
+        return <MenuItem {...props} key={arr.id} text={arr.content} />;
+      })}
     </div>
   );
 };
