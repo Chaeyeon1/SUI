@@ -1,75 +1,59 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
 import { Accordion, AccordionDetail, AccordionSummary } from './Accordion';
+import { ComponentLayout, Layout } from '../Layout';
+import { AccordionProps } from './Accordion.type';
 
 export default {
   title: 'Components/Accordion',
   component: Accordion,
-} as Meta;
-
-const Template: Story = (args) => (
-  <Accordion
-    value={args.value}
-    className={args.className}
-    color={args.color}
-    disabled={args.disabled}
-    onClick={args.onClick}
-    text={args.title}
-    auto
-  />
-);
-
-export const AccordionStory = Template.bind({});
-AccordionStory.storyName = 'Accordion';
-AccordionStory.args = {
-  className: '',
-  color: 'primary',
-  disabled: false,
-  title: 'Accordion',
 };
 
-export const Preview = () => {
+export const Preview = (args: AccordionProps) => <Accordion auto {...args} />;
+
+export const AccordionVariations = () => {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   return (
-    <>
-      <div className="mb-4">
-        <h1 className="text-2xl font-medium mb-2">Accordion</h1>
-        <h2 className="text-xl mt-6">Primary</h2>
-        <Accordion className="w-96 mb-4" value={open}>
-          <AccordionSummary
-            color="primary"
-            onClick={() => setOpen(!open)}
-            value={open}
-            text={'아코디언'}
-          />
-          <AccordionDetail value={open}>아코디언입니다.</AccordionDetail>
-        </Accordion>
+    <Layout title="Accordion">
+      <ComponentLayout title="Primary">
+        <div>
+          <Accordion className="w-96 mb-4" value={open}>
+            <AccordionSummary
+              color="primary"
+              onClick={() => setOpen(!open)}
+              value={open}
+              text={'아코디언'}
+            />
+            <AccordionDetail value={open}>아코디언입니다.</AccordionDetail>
+          </Accordion>
 
-        <Accordion auto className="w-96" text="자동 아코디언">
-          아코디언입니다.
-        </Accordion>
-      </div>
-      <div className="">
-        <h2 className="text-xl mt-6">Secondary</h2>
-        <Accordion color="secondary" className="w-96 mb-4" value={open2}>
-          <AccordionSummary
+          <Accordion auto className="w-96" text="자동 아코디언">
+            아코디언입니다.
+          </Accordion>
+        </div>
+      </ComponentLayout>
+      <ComponentLayout title="Secondary">
+        <div>
+          <Accordion color="secondary" className="w-96 mb-4" value={open2}>
+            <AccordionSummary
+              color="secondary"
+              onClick={() => setOpen2(!open2)}
+              value={open2}
+              text={'아코디언'}
+            />
+            <AccordionDetail value={open2}>아코디언입니다.</AccordionDetail>
+          </Accordion>
+          <Accordion
             color="secondary"
-            onClick={() => setOpen2(!open2)}
-            value={open2}
-            text={'아코디언'}
-          />
-          <AccordionDetail value={open2}>아코디언입니다.</AccordionDetail>
-        </Accordion>
-        <Accordion
-          color="secondary"
-          auto
-          className="w-96 mb-4"
-          text="자동 아코디언"
-        >
-          아코디언입니다.
-        </Accordion>
-        <h2 className="text-xl mt-6">Disable</h2>
+            auto
+            className="w-96 mb-4"
+            text="자동 아코디언"
+          >
+            아코디언입니다.
+          </Accordion>
+        </div>
+      </ComponentLayout>
+      <ComponentLayout title="Disabled">
         <Accordion
           color="secondary"
           disabled
@@ -79,7 +63,7 @@ export const Preview = () => {
         >
           아코디언입니다.
         </Accordion>
-      </div>
-    </>
+      </ComponentLayout>
+    </Layout>
   );
 };
