@@ -4,25 +4,20 @@ import { MenuItemProps, MenuProps } from './Menu.type';
 import { baseStyles, colorStyles, menuBaseStyles } from './Menu.style';
 import { hoverStyles } from '../util/commonStyle';
 
-export const Menu = ({
-  className,
-  color = 'primary',
-  children,
-  text,
-  array,
-  ...props
-}: MenuProps) => {
-  const menuClass = clsx(
-    className,
-    'min-w-fit',
-    menuBaseStyles,
-    colorStyles[color]
-  );
+export const Menu = ({ className, array, ...props }: MenuProps) => {
+  const menuClass = clsx(className, menuBaseStyles);
 
   return (
     <div className={menuClass}>
       {array?.map((arr) => {
-        return <MenuItem {...props} key={arr.id} text={arr.content} />;
+        return (
+          <MenuItem
+            className="w-max"
+            {...props}
+            key={arr.id}
+            text={arr.content}
+          />
+        );
       })}
     </div>
   );

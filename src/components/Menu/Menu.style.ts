@@ -1,4 +1,4 @@
-export const baseStyles = 'w-fit px-3 py-1.5';
+export const baseStyles = 'min-w-fit px-3 py-1.5';
 
 export const colorStyles = {
   primary: 'text-black cursor-pointer',
