@@ -3,23 +3,32 @@ import * as React from 'react';
 
 interface DialogProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
-  color?: 'primary' | 'secondary' | 'lightPrimary' | 'lightSecondary' | 'basic';
+  color?: 'primary' | 'secondary';
+  brightness?: 'dark' | 'light' | 'white';
   title?: string;
   content?: string;
-  action1?: string;
-  action2?: string;
+  confirm?: string;
+  cancel?: string;
   size?: 'small' | 'medium' | 'large';
   open?: boolean;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>; //안들어올 수도 있기 때문에
+  confirmAction?: () => void;
 }
 
-const baseStyles = 'z-100 drop-shadow-lg flex flex-col justify-between';
+const baseStyles =
+  'z-100 drop-shadow-lg flex flex-col justify-between bg-opacity-100';
 
-const colorStyles = {
-  primary: 'bg-primary-500 text-white',
-  secondary: 'bg-secondary-500 text-white',
-  lightPrimary: 'bg-primary-50 text-black',
-  lightSecondary: 'bg-secondary-50 text-black',
-  basic: 'bg-white text-black',
+const brightnessStyles = {
+  primary: {
+    dark: 'bg-primary-500 text-white',
+    light: 'bg-primary-50 text-black',
+    white: 'bg-white text-black',
+  },
+  secondary: {
+    dark: 'bg-secondary-500 text-white',
+    light: 'bg-secondary-50 text-black',
+    white: 'bg-white text-black',
+  },
 };
 
 const sizeStyles = {
@@ -46,52 +55,93 @@ const actionBaseStyles = {
   large: 'cursor-pointer text-xl',
 };
 
-const action1Styles = {
-  primary: '',
-  secondary: '',
-  lightPrimary: 'text-green-800',
-  lightSecondary: 'text-green-800',
-  basic: 'text-green-800',
+const confirmStyles = {
+  primary: {
+    dark: 'text-white hover:text-primary-100 active:text-primary-200',
+    light: 'text-red-600 hover:bg-primary-100 active:bg-primary-200',
+    white: 'text-red-600 hover:bg-primary-50 active:bg-primary-100',
+  },
+  secondary: {
+    dark: 'text-white hover:text-secondary-100 active:text-secondary-200',
+    light: 'text-red-600 hover:bg-secondary-100 active:bg-secondary-200',
+    white: 'text-red-600 hover:bg-secondary-50 active:bg-secondary-100',
+  },
 };
 
-const action2Styles = {
-  primary: '',
-  secondary: '',
-  lightPrimary: 'text-red-600',
-  lightSecondary: 'text-red-600',
-  basic: 'text-red-600',
+const cancelStyles = {
+  primary: {
+    dark: 'text-white hover:text-primary-100 active:text-primary-200',
+    light: 'text-green-700 hover:bg-primary-100 active:bg-primary-200',
+    white: 'text-green-700 hover:bg-primary-50 active:bg-primary-100',
+  },
+  secondary: {
+    dark: 'text-white hover:text-secondary-100 active:text-secondary-200',
+    light: 'text-green-700 hover:bg-secondary-100 active:bg-secondary-200',
+    white: 'text-green-700 hover:bg-secondary-50 active:bg-secondary-100',
+  },
 };
 
 export function Dialog({
   className,
   color = 'primary',
+  brightness = 'dark',
   title,
   content,
-  action1,
-  action2,
+  confirm = 'confirm',
+  cancel = 'cancel',
   size = 'medium',
-  open = true,
+  open = false,
+  children,
+  setOpen,
+  confirmAction,
   ...props
 }: DialogProps) {
   const dialogClass = clsx(
     className,
     baseStyles,
-    colorStyles[color],
+    brightnessStyles[color][brightness],
     sizeStyles[size]
   );
 
+  const closeD = () => {
+    setOpen && setOpen(false);
+  };
+
   return (
-    <div className={dialogClass} {...props}>
-      <div className={clsx(titleStyles[size])}>{title}</div>
-      <div className={clsx(textStyles[size])}>{content}</div>
-      <div className="flex justify-end gap-4">
-        <div className={clsx(action1Styles[color], actionBaseStyles[size])}>
-          {action1}
+    <>
+      {open && (
+        <div className="w-screen h-screen bg-black bg-opacity-25 flex justify-center items-center absolute inset-0  backdrop-blur-md">
+          <div className={dialogClass} {...props}>
+            <div className={clsx(titleStyles[size])}>{title}</div>
+            <div className={clsx(textStyles[size])}>{content}</div>
+            {children}
+            <div className="flex justify-end gap-4">
+              {(confirm || confirmAction) && (
+                <div
+                  className={clsx(
+                    confirmStyles[color][brightness],
+                    actionBaseStyles[size]
+                  )}
+                  onClick={confirmAction}
+                >
+                  {confirm}
+                </div>
+              )}
+              {cancel && (
+                <div
+                  className={clsx(
+                    cancelStyles[color][brightness],
+                    actionBaseStyles[size]
+                  )}
+                  onClick={closeD}
+                >
+                  {cancel}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <div className={clsx(action2Styles[color], actionBaseStyles[size])}>
-          {action2}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
