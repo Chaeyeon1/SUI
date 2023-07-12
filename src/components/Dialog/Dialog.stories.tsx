@@ -103,7 +103,6 @@ export const DialogVariationsStory = () => {
           color="secondary"
           brightness="light"
           size="small"
-          // open={true}
           title="title"
           content="secondary"
           confirm="confirm"
