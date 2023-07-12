@@ -11,8 +11,10 @@ interface DialogProps
   cancel?: string;
   size?: 'small' | 'medium' | 'large';
   open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>; //안들어올 수도 있기 때문에
+  anchorEl?: any;
+  setOpen?: any;
   confirmAction?: () => void;
+  ref?: any;
 }
 
 const baseStyles =
@@ -81,67 +83,69 @@ const cancelStyles = {
   },
 };
 
-export function Dialog({
-  className,
-  color = 'primary',
-  brightness = 'dark',
-  title,
-  content,
-  confirm = 'confirm',
-  cancel = 'cancel',
-  size = 'medium',
-  open = false,
-  children,
-  setOpen,
-  confirmAction,
-  ...props
-}: DialogProps) {
-  const dialogClass = clsx(
-    className,
-    baseStyles,
-    brightnessStyles[color][brightness],
-    sizeStyles[size]
-  );
+export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
+  (
+    {
+      className,
+      color = 'primary',
+      brightness = 'dark',
+      title,
+      content,
+      confirm = 'confirm',
+      cancel = 'cancel',
+      size = 'medium',
+      open = false,
+      children,
+      setOpen,
+      anchorEl,
+      confirmAction,
+      ...props
+    },
+    ref
+  ) => {
+    const dialogClass = clsx(
+      className,
+      baseStyles,
+      brightnessStyles[color][brightness],
+      sizeStyles[size]
+    );
 
-  const closeD = () => {
-    setOpen && setOpen(false);
-  };
-
-  return (
-    <>
-      {open && (
-        <div className="w-screen h-screen bg-black bg-opacity-25 flex justify-center items-center absolute inset-0  backdrop-blur-md">
-          <div className={dialogClass} {...props}>
-            <div className={clsx(titleStyles[size])}>{title}</div>
-            <div className={clsx(textStyles[size])}>{content}</div>
-            {children}
-            <div className="flex justify-end gap-4">
-              {(confirm || confirmAction) && (
-                <div
-                  className={clsx(
-                    confirmStyles[color][brightness],
-                    actionBaseStyles[size]
-                  )}
-                  onClick={confirmAction}
-                >
-                  {confirm}
-                </div>
-              )}
-              {cancel && (
-                <div
-                  className={clsx(
-                    cancelStyles[color][brightness],
-                    actionBaseStyles[size]
-                  )}
-                  onClick={closeD}
-                >
-                  {cancel}
-                </div>
-              )}
+    return (
+      <>
+        {open && (
+          <div className="w-screen h-screen bg-black bg-opacity-25 flex justify-center items-center absolute inset-0  backdrop-blur-md">
+            <div className={dialogClass} ref={ref} {...props}>
+              <div className={clsx(titleStyles[size])}>{title}</div>
+              <div className={clsx(textStyles[size])}>{content}</div>
+              {children}
+              <div className="flex justify-end gap-4">
+                {(confirm || confirmAction) && (
+                  <div
+                    className={clsx(
+                      confirmStyles[color][brightness],
+                      actionBaseStyles[size]
+                    )}
+                    onClick={confirmAction}
+                  >
+                    {confirm}
+                  </div>
+                )}
+                {cancel && (
+                  <div
+                    className={clsx(
+                      cancelStyles[color][brightness],
+                      actionBaseStyles[size]
+                    )}
+                    onClick={() => setOpen && setOpen(false)}
+                  >
+                    {cancel}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </>
-  );
-}
+        )}
+      </>
+    );
+  }
+);

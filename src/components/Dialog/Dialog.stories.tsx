@@ -35,29 +35,47 @@ DialogStory.args = {
 };
 
 export const DialogVariationsStory = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const openD = () => {
-    setOpen(true);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const popupRef = React.useRef<HTMLDivElement>(null);
+  const closeHandler = (e: any) => {
+    if (!popupRef.current?.contains(e.target)) {
+      setIsOpen(false);
+    }
   };
+
+  React.useEffect(() => {
+    // 4
+    document.addEventListener('mousedown', closeHandler);
+    return () => {
+      document.removeEventListener('mousedown', closeHandler);
+    };
+  }, []);
 
   return (
     <div className="card max-w-800 p-3">
       <h1 className="text-2xl font-medium mb-2">Dialog</h1>
       <h2 className="text-xl mt-6 ">dark chip</h2>
       <div className="flex items-end gap-4">
-        <Button onClick={openD}>click me</Button>
-        <Dialog
-          color="primary"
-          brightness="dark"
-          size="small"
-          open={open}
-          title="title"
-          content="primary"
-          confirm="confirm"
-          cancel="cancel"
-          setOpen={setOpen}
-        ></Dialog>
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          click me
+        </Button>
+        <div onClick={(e) => e.stopPropagation()}>
+          <Dialog
+            color="primary"
+            brightness="dark"
+            size="small"
+            open={isOpen}
+            title="title"
+            content="primary"
+            confirm="confirm"
+            ref={popupRef}
+            cancel="cancel"
+          ></Dialog>
+        </div>
         <Dialog
           color="secondary"
           brightness="dark"
