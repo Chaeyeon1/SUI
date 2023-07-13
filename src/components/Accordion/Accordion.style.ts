@@ -8,4 +8,4 @@ export const colorStyles = {
     'text-black shadow-md shadow-gray-300 hover:bg-secondary-50 active:bg-secondary-100',
 };
 
-export const disabledSyles = 'cursor-default pointer-events-none bg-gray-300';
+export const disabledStyles = 'cursor-default pointer-events-none bg-gray-300';

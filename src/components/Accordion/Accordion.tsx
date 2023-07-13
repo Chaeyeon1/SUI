@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import Up from '../../assets/up.svg';
 import Down from '../../assets/down.svg';
-import { baseStyles, colorStyles, disabledSyles } from './Accordion.style';
+import { baseStyles, colorStyles, disabledStyles } from './Accordion.style';
 import { AccordionProps, AccordionSummaryProps } from './Accordion.type';
 
 export const Accordion = ({
@@ -18,7 +18,7 @@ export const Accordion = ({
   const [open, setOpen] = useState(false);
 
   const accordionClass = disabled
-    ? clsx(className, 'min-w-fit', disabledSyles)
+    ? clsx(className, 'min-w-fit', disabledStyles)
     : clsx(className, 'min-w-fit', colorStyles[color]);
 
   return (
@@ -50,7 +50,7 @@ export const AccordionSummary = ({
   ...props
 }: AccordionSummaryProps) => {
   const accordionClass = disabled
-    ? clsx(className, baseStyles, disabledSyles)
+    ? clsx(className, baseStyles, disabledStyles)
     : clsx(className, baseStyles, colorStyles[color]);
 
   return (
