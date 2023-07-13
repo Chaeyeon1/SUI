@@ -1,4 +1,4 @@
-export interface TextfieldProps
+export interface TextFieldProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   variant?: 'underline' | 'outlined';
   color?: 'primary' | 'secondary';

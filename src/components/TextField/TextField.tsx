@@ -8,7 +8,7 @@ import {
   disabledStyles,
   disabledVariantStyles,
 } from './TextField.style';
-import { TextfieldProps } from './TextField.type';
+import { TextFieldProps } from './TextField.type';
 
 export function TextField({
   className,
@@ -19,7 +19,7 @@ export function TextField({
   disabled = false,
   children,
   ...props
-}: TextfieldProps) {
+}: TextFieldProps) {
   const inputClass = disabled
     ? clsx(
         className,
