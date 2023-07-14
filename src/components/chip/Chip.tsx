@@ -1,28 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
-
-interface ChipProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
-  variant?: 'contained' | 'outlined';
-  removable?: boolean;
-  color?: 'primary' | 'secondary';
-  disabled?: boolean;
-  text?: string;
-}
-
-const baseStyles = 'font-medium rounded  h-9 rounded-full px-3 pt-1 w-fit';
-
-const disabledSyles = 'cursor-default pointer-events-none';
-
-const colorStyles = {
-  contained: {
-    primary: 'text-white bg-primary-500',
-    secondary: 'text-white bg-secondary-500',
-  },
-  outlined: {
-    primary: 'text-primary-500 bg-white border border-primary-500',
-    secondary: 'text-secondary-500 bg-white border border-secondary-500',
-  },
-};
+import { baseStyles, colorStyles, disabledStyles } from './Chip.style';
+import { ChipProps } from './Chip.type';
 
 export function Chip({
   className,
@@ -35,7 +14,7 @@ export function Chip({
   ...props
 }: ChipProps) {
   const chipClass = disabled
-    ? clsx(className, baseStyles, disabledSyles)
+    ? clsx(className, baseStyles, disabledStyles)
     : clsx(className, baseStyles, colorStyles[variant][color]);
 
   return (

@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Button, ButtonProps } from './Button';
+import { Button } from './Button';
 import { ComponentLayout } from '../Layout';
+import { ButtonProps } from './Button.type';
 
 export default {
   title: 'Components/Button',
