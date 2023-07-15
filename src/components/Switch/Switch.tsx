@@ -11,31 +11,97 @@ interface SwitchProps
 }
 
 const variantStyles = {
-  thin: '',
+  thin: 'h-[10px] flex items-center justify-between',
   normal: '',
   bold: '',
 };
 
 const colorStyles = {
-  primary: '',
-  secondary: '',
+  primary: {
+    thin: 'bg-primary-500',
+    normal: '',
+    bold: '',
+  },
+  secondary: {
+    thin: 'bg-secondary-500',
+    normal: '',
+    bold: '',
+  },
 };
 
 const sizeStyles = {
-  small: '',
-  medium: '',
-  large: '',
+  small: 'w-[60px]',
+  medium: 'w-[70px]',
+  large: 'w-[80px]',
+};
+
+const buttonBaseStyles = {
+  small: 'rounded-full w-[30px] h-[30px] cursor-pointer',
+  medium: 'rounded-full w-[35px] h-[35px] cursor-pointer',
+  large: 'rounded-full w-[40px] h-[40px] cursor-pointer',
+};
+
+const buttonStyles = {
+  thin: {
+    primary: 'bg-white border-[3px] border-primary-500',
+    secondary: 'bg-white border-[3px] border-secondary-500',
+  },
+  normal: {
+    primary: '',
+    secondary: '',
+  },
+  bold: {
+    primary: '',
+    secondary: '',
+  },
 };
 
 export function Switch({
   className,
   variant = 'thin',
   color = 'primary',
-  state = true,
+  // state = true,
   label = 'label',
+  size = 'small',
   ...props
 }: SwitchProps) {
-  const SwitchClass = clsx(className, variantStyles, colorStyles, sizeStyles);
+  const SwitchClass = clsx(
+    className,
+    variantStyles[variant],
+    colorStyles[color][variant],
+    sizeStyles[size]
+  );
 
-  return <div className={SwitchClass} {...props}></div>;
+  const [state, setState] = React.useState(true);
+
+  const switching = () => {
+    setState(!state);
+  };
+
+  return (
+    <div className={SwitchClass} {...props}>
+      <div>
+        {state && (
+          <div
+            className={clsx(
+              buttonBaseStyles[size],
+              buttonStyles[variant][color]
+            )}
+            onClick={switching}
+          ></div>
+        )}
+      </div>
+      <div>
+        {!state && (
+          <div
+            className={clsx(
+              buttonBaseStyles[size],
+              buttonStyles[variant][color]
+            )}
+            onClick={switching}
+          ></div>
+        )}
+      </div>
+    </div>
+  );
 }
