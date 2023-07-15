@@ -13,19 +13,19 @@ interface SwitchProps
 const variantStyles = {
   thin: 'h-[10px] flex items-center justify-between',
   normal: 'h-[20px] rounded-full flex items-center justify-between',
-  bold: '',
+  bold: 'h-[45px] rounded-full flex items-center justify-between px-[3px] shadow-inner shadow-gray-700',
 };
 
 const colorStyles = {
   primary: {
     thin: 'bg-primary-500',
     normal: 'bg-primary-200',
-    bold: '',
+    bold: 'bg-primary-500',
   },
   secondary: {
     thin: 'bg-secondary-500',
     normal: 'bg-secondary-200',
-    bold: '',
+    bold: 'bg-secondary-500',
   },
 };
 
@@ -38,7 +38,7 @@ const sizeStyles = {
 const buttonBaseStyles = {
   small: 'rounded-full w-[30px] h-[30px] cursor-pointer',
   medium: 'rounded-full w-[35px] h-[35px] cursor-pointer',
-  large: 'rounded-full w-[40px] h-[40px] cursor-pointer',
+  large: 'rounded-full w-[38px] h-[38px] cursor-pointer',
 };
 
 const buttonStyles = {
@@ -51,8 +51,8 @@ const buttonStyles = {
     secondary: 'bg-secondary-500',
   },
   bold: {
-    primary: '',
-    secondary: '',
+    primary: 'bg-primary-500 border-white border-[2px]',
+    secondary: 'bg-secondary-500 border-[2px] border-white',
   },
 };
 
