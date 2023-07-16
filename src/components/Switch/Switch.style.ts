@@ -3,19 +3,23 @@ export const variantStyles = {
     normal: 'h-[20px] rounded-full flex items-center justify-between',
     bold: 'h-[45px] rounded-full flex items-center justify-between px-[3px] shadow-inner shadow-gray-700',
   };
-  
-export const colorStyles = {
-    primary: {
-      thin: 'bg-primary-500',
-      normal: 'bg-primary-200',
-      bold: 'bg-primary-500',
+
+  export const colorStyles = {
+    thin: {
+      primary: 'bg-primary-500',
+      secondary: 'bg-secondary-500'
     },
-    secondary: {
-      thin: 'bg-secondary-500',
-      normal: 'bg-secondary-200',
-      bold: 'bg-secondary-500',
+
+    normal: {
+      primary: 'bg-primary-200',
+      secondary: 'bg-secondary-200'
     },
-  };
+
+    bold: {
+      primary: 'bg-primary-500',
+      secondary: 'bg-secondary-500'
+    },
+  }
   
 export const sizeStyles = {
     small: 'w-[60px]',

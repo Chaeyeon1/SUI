@@ -13,7 +13,6 @@ export function Switch({
   className,
   variant = 'thin',
   color = 'primary',
-  // state = true,
   label = 'label',
   size = 'small',
   ...props
@@ -21,7 +20,7 @@ export function Switch({
   const SwitchClass = clsx(
     className,
     variantStyles[variant],
-    colorStyles[color][variant],
+    colorStyles[variant][color],
     sizeStyles[size]
   );
 
