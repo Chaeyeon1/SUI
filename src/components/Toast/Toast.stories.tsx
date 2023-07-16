@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Toast } from './Toast';
 import { ToastProps } from './Toast.type';
-import { ComponentLayout } from '../Layout';
+import { ComponentLayout, Layout } from '../Layout';
 
 export default {
   title: 'Components/Toast',
@@ -12,7 +12,7 @@ export const Preview = (args: ToastProps) => <Toast {...args} />;
 
 export const ToastVariationsStory = () => {
   return (
-    <div className="card max-w-800 p-3">
+    <Layout title="Toast">
       <ComponentLayout title="contained Toast">
         <div className="flex items-end gap-4">
           <Toast variant="contained" type="success" size="small" open={true}>
@@ -46,6 +46,6 @@ export const ToastVariationsStory = () => {
           </Toast>
         </div>
       </ComponentLayout>
-    </div>
+    </Layout>
   );
 };

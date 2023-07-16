@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from './Button';
-import { ComponentLayout } from '../Layout';
+import { ComponentLayout, Layout } from '../Layout';
 import { ButtonProps } from './Button.type';
 
 export default {
@@ -12,7 +12,7 @@ export const Preview = (args: ButtonProps) => <Button {...args} />;
 
 export const ButtonVariationsStory = () => {
   return (
-    <div className="card max-w-800 p-3">
+    <Layout title="Button">
       <ComponentLayout title="Color">
         <Button className="ml-2" color="primary" variant="contained">
           Primary
@@ -95,6 +95,6 @@ export const ButtonVariationsStory = () => {
           </div>
         </div>
       </ComponentLayout>
-    </div>
+    </Layout>
   );
 };

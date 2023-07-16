@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextField } from './TextField';
 import { TextFieldProps } from './TextField.type';
-import { ComponentLayout } from '../Layout';
+import { ComponentLayout, Layout } from '../Layout';
 
 export default {
   title: 'Components/TextField',
@@ -12,7 +12,7 @@ export const Preview = (args: TextFieldProps) => <TextField {...args} />;
 
 export const TextFieldVariationsStory = () => {
   return (
-    <div className="card max-w-800 p-3">
+    <Layout title="TextField">
       <ComponentLayout title="outlined TextFields">
         <div className="flex items-end gap-4">
           <TextField
@@ -87,6 +87,6 @@ export const TextFieldVariationsStory = () => {
           </div>
         </div>
       </ComponentLayout>
-    </div>
+    </Layout>
   );
 };

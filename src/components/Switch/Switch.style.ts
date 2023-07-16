@@ -1,6 +1,6 @@
 export const variantStyles = {
     thin: 'h-[10px] flex items-center justify-between',
-    normal: 'h-[20px] rounded-full flex items-center justify-between',
+    normal: 'h-[20px] rounded-full flex items-center justify-between ',
     bold: 'h-[45px] rounded-full flex items-center justify-between px-[3px] shadow-inner shadow-gray-700',
   };
 
