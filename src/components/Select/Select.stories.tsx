@@ -7,4 +7,12 @@ export default {
   component: Select,
 };
 
-export const Preview = (args: SelectProps) => <Select {...args} />;
+export const Preview = (args: SelectProps) => (
+  <Select
+    options={[
+      { id: 0, content: 'Python' },
+      { id: 1, content: 'Java' },
+    ]}
+    {...args}
+  />
+);

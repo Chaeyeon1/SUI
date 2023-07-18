@@ -6,4 +6,5 @@ export interface SelectProps
   value?: boolean;
   auto?: boolean;
   text?: string;
+  options?: { id: number; content: string }[];
 }
