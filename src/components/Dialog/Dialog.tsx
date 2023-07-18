@@ -14,7 +14,6 @@ interface DialogProps
   anchorEl?: any;
   setOpen?: any;
   confirmAction?: () => void;
-  ref?: any;
 }
 
 const baseStyles =
@@ -84,25 +83,22 @@ const cancelStyles = {
 };
 
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
-  (
-    {
-      className,
-      color = 'primary',
-      brightness = 'dark',
-      title,
-      content,
-      confirm = 'confirm',
-      cancel = 'cancel',
-      size = 'medium',
-      open = false,
-      children,
-      setOpen,
-      anchorEl,
-      confirmAction,
-      ...props
-    },
-    ref
-  ) => {
+  ({
+    className,
+    color = 'primary',
+    brightness = 'dark',
+    title,
+    content,
+    confirm = 'confirm',
+    cancel = 'cancel',
+    size = 'medium',
+    open = false,
+    children,
+    setOpen,
+    anchorEl,
+    confirmAction,
+    ...props
+  }) => {
     const dialogClass = clsx(
       className,
       baseStyles,
@@ -110,11 +106,26 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
       sizeStyles[size]
     );
 
+    const popupRef = React.useRef<HTMLDivElement>(null);
+
+    const closeHandler = (e: any) => {
+      if (!popupRef.current?.contains(e.target)) {
+        setOpen && setOpen(false);
+      }
+    };
+
+    React.useEffect(() => {
+      document.addEventListener('mousedown', closeHandler);
+      return () => {
+        document.removeEventListener('mousedown', closeHandler);
+      };
+    }, []);
+
     return (
       <>
         {open && (
           <div className="w-screen h-screen bg-black bg-opacity-25 flex justify-center items-center absolute inset-0  backdrop-blur-md">
-            <div className={dialogClass} ref={ref} {...props}>
+            <div className={dialogClass} ref={popupRef} {...props}>
               <div className={clsx(titleStyles[size])}>{title}</div>
               <div className={clsx(textStyles[size])}>{content}</div>
               {children}
