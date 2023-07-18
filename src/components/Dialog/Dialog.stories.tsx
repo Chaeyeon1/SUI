@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { Dialog } from './Dialog';
+import { Button } from '../Button';
 
 export default {
   title: 'Components/Dialog',
@@ -16,9 +17,8 @@ const Template: Story = (args) => (
     open={args.open}
     title={args.title}
     content={args.content}
-    action1={args.action1}
-    action2={args.action2}
-  />
+    confirm={args.confirm}
+  ></Dialog>
 );
 
 export const DialogStory = Template.bind({});
@@ -26,86 +26,143 @@ DialogStory.storyName = 'Dialog';
 DialogStory.args = {
   className: '',
   color: 'primary',
+  brightness: 'dark',
   size: 'medium',
   open: false,
   title: 'title',
   content: 'content',
-  action1: 'action',
-  action2: 'action',
+  confirm: 'confirm',
 };
 
 export const DialogVariationsStory = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const popupRef = React.useRef<HTMLDivElement>(null);
+  const closeHandler = (e: any) => {
+    if (!popupRef.current?.contains(e.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  React.useEffect(() => {
+    // 4
+    document.addEventListener('mousedown', closeHandler);
+    return () => {
+      document.removeEventListener('mousedown', closeHandler);
+    };
+  }, []);
+
   return (
     <div className="card max-w-800 p-3">
       <h1 className="text-2xl font-medium mb-2">Dialog</h1>
-      <h2 className="text-xl mt-6 ">color style</h2>
+      <h2 className="text-xl mt-6 ">dark chip</h2>
+      <div className="flex items-end gap-4">
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          click me
+        </Button>
+        <div onClick={(e) => e.stopPropagation()}>
+          <Dialog
+            color="primary"
+            brightness="dark"
+            size="small"
+            open={isOpen}
+            title="title"
+            content="primary"
+            confirm="confirm"
+            ref={popupRef}
+            cancel="cancel"
+          ></Dialog>
+        </div>
+        <Dialog
+          color="secondary"
+          brightness="dark"
+          size="small"
+          // open={true}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        ></Dialog>
+      </div>
+      <h2 className="text-xl mt-6 ">light chip</h2>
       <div className="flex items-end gap-4">
         <Dialog
           color="primary"
+          brightness="light"
           size="small"
+          // open={true}
           title="title"
           content="primary"
-          action1="action1"
-          action2="action2"
+          confirm="confirm"
+          cancel="cancel"
         ></Dialog>
         <Dialog
           color="secondary"
+          brightness="light"
           size="small"
           title="title"
           content="secondary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightPrimary"
-          size="small"
-          title="title"
-          content="light primary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightSecondary"
-          size="small"
-          title="title"
-          content="light secondary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="basic"
-          size="small"
-          title="title"
-          content="basic"
-          action1="action1"
-          action2="action2"
+          confirm="confirm"
+          cancel="cancel"
         ></Dialog>
       </div>
-      <h2 className="text-xl mt-6 ">size</h2>
+      <h2 className="text-xl mt-6 ">light chip</h2>
       <div className="flex items-end gap-4">
         <Dialog
-          color="lightSecondary"
+          color="primary"
+          brightness="white"
           size="small"
+          // open={true}
           title="title"
-          content="small"
-          action1="action1"
-          action2="action2"
+          content="primary"
+          confirm="confirm"
+          cancel="cancel"
         ></Dialog>
         <Dialog
-          color="lightSecondary"
+          color="secondary"
+          brightness="white"
+          size="small"
+          // open={true}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        ></Dialog>
+      </div>
+      <h2 className="text-xl mt-6 ">sizes</h2>
+      <div className="flex items-end gap-4">
+        <Dialog
+          color="secondary"
+          brightness="light"
+          size="small"
+          // open={true}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        ></Dialog>
+        <Dialog
+          color="secondary"
+          brightness="light"
           size="medium"
+          // open={true}
           title="title"
-          content="medium"
-          action1="action1"
-          action2="action2"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
         ></Dialog>
         <Dialog
-          color="lightSecondary"
+          color="secondary"
+          brightness="light"
           size="large"
+          // open={true}
           title="title"
-          content="large"
-          action1="action1"
-          action2="action2"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
         ></Dialog>
       </div>
     </div>

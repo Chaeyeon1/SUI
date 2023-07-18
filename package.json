@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "sui": "run-p bundle generate-css storybook",
     "dev": "run-p bundle generate-css storybook",
     "format": "prettier --write README.md \"src/**/*.{js,jsx,ts,tsx,json}\"",
     "storybook": "start-storybook -p 6006",
