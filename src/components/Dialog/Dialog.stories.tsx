@@ -18,7 +18,7 @@ const Template: Story = (args) => (
     content={args.content}
     action1={args.action1}
     action2={args.action2}
-  ></Dialog>
+  />
 );
 
 export const DialogStory = Template.bind({});
