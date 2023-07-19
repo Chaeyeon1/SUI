@@ -68,7 +68,7 @@ export const ToastVariationsStory = () => {
       </ComponentLayout>
 
       <ComponentLayout title="mouseOver">
-        <div className="flex gap-4 pl-[100px] w-[500px] h-[100px] pt-[80px]">
+        <div className="flex gap-4 pl-[100px] w-[500px] h-[400px] pt-[80px] pb-[80px]">
           <div
             className="relative w-[50px] h-[50px] bg-black"
             onMouseOver={TooltipToggle3}
