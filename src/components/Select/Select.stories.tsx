@@ -12,6 +12,7 @@ export const Preview = (args: SelectProps) => (
     options={[
       { id: 0, content: 'Python' },
       { id: 1, content: 'Java' },
+      { id: 2, content: 'JavaScript' },
     ]}
     {...args}
   />

@@ -35,9 +35,7 @@ export const Select = ({
   }, []);
 
   return (
-    <div {...rest} className="select-wrapper" data-role="selectbox">
-      <h2 className="hidden">select</h2>
-
+    <div {...rest}>
       <div>
         <button
           type="button"
@@ -47,21 +45,21 @@ export const Select = ({
           {selectContent}
         </button>
         <ul ref={menuRef} className={menuStyles[open ? 'notHidden' : 'hidden']}>
-          {options?.map((option, i) => {
-            return (
-              <li key={option.id} className={SelectOptionClass}>
-                <button
-                  onClick={() => {
-                    setSelectContent(option.content);
-                    setOpen(false);
-                  }}
-                  type="button"
-                >
-                  <span className="text-xs leading-6"> {option.content}</span>
-                </button>
-              </li>
-            );
-          })}
+          {options?.map((option) => (
+            <li
+              key={option.id}
+              className={SelectOptionClass}
+              onClick={() => {
+                console.log('클릭했는데 왜  안 되냐 죽을래?');
+                setSelectContent(option.content);
+                setOpen(false);
+              }}
+            >
+              <button type="button">
+                <span className="text-xs leading-6"> {option.content}</span>
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
