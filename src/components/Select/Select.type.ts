@@ -1,10 +1,5 @@
 export interface SelectProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
   color: 'primary' | 'secondary';
-  size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
-  value?: boolean;
-  auto?: boolean;
-  text?: string;
   options?: { id: number; content: string }[];
 }

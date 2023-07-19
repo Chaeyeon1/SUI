@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   baseStyles,
+  inputBaseStyles,
   inputStyles,
   menuStyles,
   optionStyles,
@@ -16,11 +17,15 @@ export const Select = ({
   color,
   ...rest
 }: SelectProps) => {
-  const SelectOptionClass = clsx(className, baseStyles, optionStyles[color]);
-
   const [open, setOpen] = useState(false);
   const [selectContent, setSelectContent] = useState('');
   const menuRef = useRef<HTMLUListElement>(null);
+
+  const SelectOptionClass = clsx(className, baseStyles, optionStyles[color]);
+  const InputOptionClass = clsx(
+    inputBaseStyles,
+    inputStyles[open ? 'open' : 'notOpen'][color]
+  );
 
   useEffect(() => {
     document.addEventListener('mousedown', (e) =>
@@ -37,20 +42,15 @@ export const Select = ({
   return (
     <div {...rest}>
       <div>
-        <button
-          type="button"
-          className={inputStyles}
-          onClick={() => setOpen(!open)}
-        >
+        <div className={InputOptionClass} onClick={() => setOpen(!open)}>
           {selectContent}
-        </button>
+        </div>
         <ul ref={menuRef} className={menuStyles[open ? 'notHidden' : 'hidden']}>
           {options?.map((option) => (
             <li
               key={option.id}
               className={SelectOptionClass}
               onClick={() => {
-                console.log('클릭했는데 왜  안 되냐 죽을래?');
                 setSelectContent(option.content);
                 setOpen(false);
               }}
