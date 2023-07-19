@@ -9,13 +9,13 @@ import {
 import { SelectProps } from './Select.type';
 import { closeHandler } from '../util/closeHandler';
 
-export function Select({
+export const Select = ({
   className,
   children,
   options,
   color,
-  ...props
-}: SelectProps) {
+  ...rest
+}: SelectProps) => {
   const SelectOptionClass = clsx(className, baseStyles, optionStyles[color]);
 
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ export function Select({
   }, []);
 
   return (
-    <div className="select-wrapper" data-role="selectbox">
+    <div {...rest} className="select-wrapper" data-role="selectbox">
       <h2 className="hidden">select</h2>
 
       <div>
@@ -66,7 +66,7 @@ export function Select({
       </div>
     </div>
   );
-}
+};
 
 Select.defaultProps = {
   color: 'primary',
