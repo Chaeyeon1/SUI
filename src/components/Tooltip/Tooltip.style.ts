@@ -32,4 +32,4 @@ export const directionStyles = {
     }
 }
 
-export const xButtonStyles = 'w-[30px] h-[30px] rounded-full bg-white text-black flex justify-center items-center border-black border-[1px] text-lg absolute top-[-5px] right-[-10px] cursor-pointer'
+export const xButtonStyles = 'w-[30px] h-[30px] rounded-full bg-white text-black flex justify-center items-center border-black border-[1px] text-lg absolute top-[-10px] right-[-10px] cursor-pointer'

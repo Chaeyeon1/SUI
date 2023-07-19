@@ -6,4 +6,6 @@ export interface TooltipProps
   direction?: 'top' | 'bottom' | 'right' | 'left';
   children?: ReactNode;
   open?:boolean;
+  setOpen?:any;
+  xButton?:boolean;
 }
