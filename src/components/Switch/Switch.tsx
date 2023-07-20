@@ -7,13 +7,14 @@ import {
   colorStyles,
   buttonBaseStyles,
   buttonStyles,
+  textSizeStyles,
 } from './Switch.style';
 
 export function Switch({
   className,
   variant = 'thin',
   color = 'primary',
-  label = 'label',
+  label,
   size = 'small',
   ...props
 }: SwitchProps) {
@@ -31,7 +32,7 @@ export function Switch({
   };
 
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <div className={SwitchClass} {...props}>
         <div>
           {state && (
@@ -56,11 +57,7 @@ export function Switch({
           )}
         </div>
       </div>
-      {label && (
-        <div text-black text-lg>
-          {label}
-        </div>
-      )}
+      {label && <div className={clsx(textSizeStyles[size])}>{label}</div>}
     </div>
   );
 }

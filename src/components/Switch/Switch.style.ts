@@ -26,6 +26,12 @@ export const sizeStyles = {
     medium: 'w-[70px]',
     large: 'w-[80px]',
   };
+
+  export const textSizeStyles = {
+    small: 'text-black text-lg',
+    medium: 'text-black text-xl',
+    large: 'text-black text-2xl',
+  };
   
   export const buttonBaseStyles = {
     small: 'rounded-full w-[30px] h-[30px] cursor-pointer',
