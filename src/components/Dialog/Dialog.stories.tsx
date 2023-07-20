@@ -1,56 +1,39 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
 import { Dialog } from './Dialog';
 import { Button } from '../Button';
+import { DialogProps } from './Dialog.type';
+import { ComponentLayout, Layout } from '../Layout';
 
 export default {
   title: 'Components/Dialog',
   component: Dialog,
   argTypes: { onClick: { action: 'clicked' } },
-} as Meta;
-
-const Template: Story = (args) => (
-  <Dialog
-    className={args.className}
-    size={args.size}
-    color={args.color}
-    open={args.open}
-    title={args.title}
-    content={args.content}
-    confirm={args.confirm}
-  />
-);
-
-export const DialogStory = Template.bind({});
-DialogStory.storyName = 'Dialog';
-DialogStory.args = {
-  className: '',
-  color: 'primary',
-  brightness: 'dark',
-  size: 'medium',
-  open: false,
-  title: 'title',
-  content: 'content',
-  confirm: 'confirm',
 };
+
+export const Preview = (args: DialogProps) => <Dialog {...args} />;
 
 export const DialogVariationsStory = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isOpen2, setIsOpen2] = React.useState(false);
+  const [isOpen3, setIsOpen3] = React.useState(false);
+  const [isOpen4, setIsOpen4] = React.useState(false);
+  const [isOpen5, setIsOpen5] = React.useState(false);
+  const [isOpen6, setIsOpen6] = React.useState(false);
+  const [isOpen7, setIsOpen7] = React.useState(false);
+  const [isOpen8, setIsOpen8] = React.useState(false);
+  const [isOpen9, setIsOpen9] = React.useState(false);
 
   return (
-    <div className="card max-w-800 p-3">
-      <h1 className="text-2xl font-medium mb-2">Dialog</h1>
-      <h2 className="text-xl mt-6 ">dark chip</h2>
-      <div className="flex items-end gap-4">
-        <Button
-          onClick={() => {
-            setIsOpen(true);
-          }}
-        >
-          click me
-        </Button>
-        <div onClick={(e) => e.stopPropagation()}>
+    <Layout title="Dialog">
+      <ComponentLayout title="dark">
+        <div className="flex items-end gap-4">
+          <Button
+            onClick={() => {
+              setIsOpen(true);
+            }}
+          >
+            click me
+          </Button>
           <Dialog
             color="primary"
             brightness="dark"
@@ -62,99 +45,179 @@ export const DialogVariationsStory = () => {
             confirm="confirm"
             cancel="cancel"
           />
+          <Button
+            color="secondary"
+            onClick={() => {
+              setIsOpen2(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="secondary"
+            brightness="dark"
+            size="small"
+            open={isOpen2}
+            setOpen={setIsOpen2}
+            title="title"
+            content="secondary"
+            confirm="confirm"
+            cancel="cancel"
+          />
         </div>
-        <Dialog
-          color="secondary"
-          brightness="dark"
-          size="small"
-          open={isOpen2}
-          setOpen={setIsOpen2}
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-      </div>
-      <h2 className="text-xl mt-6 ">light chip</h2>
-      <div className="flex items-end gap-4">
-        <Dialog
-          color="primary"
-          brightness="light"
-          size="small"
-          // open={true}
-          title="title"
-          content="primary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-        <Dialog
-          color="secondary"
-          brightness="light"
-          size="small"
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-      </div>
-      <h2 className="text-xl mt-6 ">light chip</h2>
-      <div className="flex items-end gap-4">
-        <Dialog
-          color="primary"
-          brightness="white"
-          size="small"
-          // open={true}
-          title="title"
-          content="primary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-        <Dialog
-          color="secondary"
-          brightness="white"
-          size="small"
-          // open={true}
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-      </div>
-      <h2 className="text-xl mt-6 ">sizes</h2>
-      <div className="flex items-end gap-4">
-        <Dialog
-          color="secondary"
-          brightness="light"
-          size="small"
-          // open={true}
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        />
-        <Dialog
-          color="secondary"
-          brightness="light"
-          size="medium"
-          // open={true}
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        ></Dialog>
-        <Dialog
-          color="secondary"
-          brightness="light"
-          size="large"
-          // open={true}
-          title="title"
-          content="secondary"
-          confirm="confirm"
-          cancel="cancel"
-        ></Dialog>
-      </div>
-    </div>
+      </ComponentLayout>
+      <ComponentLayout title="light">
+        <div className="flex items-end gap-4">
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen3(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="primary"
+            brightness="light"
+            size="small"
+            open={isOpen3}
+            setOpen={setIsOpen3}
+            title="title"
+            content="primary"
+            confirm="confirm"
+            cancel="cancel"
+          />
+          <Button
+            color="secondary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen4(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="secondary"
+            brightness="light"
+            size="small"
+            open={isOpen4}
+            setOpen={setIsOpen4}
+            title="title"
+            content="secondary"
+            confirm="confirm"
+            cancel="cancel"
+          />
+        </div>
+      </ComponentLayout>
+      <ComponentLayout title="white">
+        <div className="flex items-end gap-4">
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen5(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="primary"
+            brightness="white"
+            size="small"
+            open={isOpen5}
+            setOpen={setIsOpen5}
+            title="title"
+            content="primary"
+            confirm="confirm"
+            cancel="cancel"
+          />
+          <Button
+            color="secondary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen6(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="secondary"
+            brightness="white"
+            size="small"
+            open={isOpen6}
+            setOpen={setIsOpen6}
+            title="title"
+            content="secondary"
+            confirm="confirm"
+            cancel="cancel"
+          />
+        </div>
+      </ComponentLayout>
+      <ComponentLayout title="sizes">
+        <div className="flex items-end gap-4">
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen7(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="primary"
+            brightness="white"
+            size="small"
+            open={isOpen7}
+            setOpen={setIsOpen7}
+            title="title"
+            content="small"
+            confirm="confirm"
+            cancel="cancel"
+          />
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen8(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="primary"
+            brightness="white"
+            size="medium"
+            open={isOpen8}
+            setOpen={setIsOpen8}
+            title="title"
+            content="medium"
+            confirm="confirm"
+            cancel="cancel"
+          />
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              setIsOpen9(true);
+            }}
+          >
+            click me
+          </Button>
+          <Dialog
+            color="primary"
+            brightness="white"
+            size="large"
+            open={isOpen9}
+            setOpen={setIsOpen9}
+            title="title"
+            content="large"
+            confirm="confirm"
+            cancel="cancel"
+          />
+        </div>
+      </ComponentLayout>
+    </Layout>
   );
 };
-
-DialogVariationsStory.storyName = 'Dialog Variations';
