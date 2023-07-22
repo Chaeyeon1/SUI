@@ -7,8 +7,10 @@ export const optionStyles = {
 };
 
 export const menuStyles = {
-  hidden: 'w-fit rounded-2xl hidden shadow-md shadow-gray-300 w-[220px]',
-  notHidden: 'w-fit rounded-2xl shadow-md shadow-gray-300 w-[220px]',
+  hidden:
+    'z-50 absolute bg-white w-fit rounded-2xl hidden shadow-md shadow-gray-300 w-[220px]',
+  notHidden:
+    'bg-white w-fit rounded-2xl shadow-md shadow-gray-300 w-[220px] z-50 absolute',
 };
 
 export const inputBaseStyles =
@@ -27,4 +29,9 @@ export const inputStyles = {
     secondary:
       'border border-solid hover:border-secondary-500 active:border-secondary-600',
   },
+};
+
+export const positionAbsolute = {
+  position: 'absolute',
+  zIndex: 100,
 };
