@@ -1,44 +1,19 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
 import { Button } from './Button';
+import { ComponentLayout } from '../Layout';
+import { ButtonProps } from './Button.type';
 
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: { onClick: { action: 'clicked' } },
-} as Meta;
-
-const Template: Story = (args) => (
-  <Button
-    className={args.className}
-    variant={args.variant}
-    color={args.color}
-    size={args.size}
-    disabled={args.disabled}
-    onClick={args.onClick}
-  >
-    {args.text}
-  </Button>
-);
-
-export const ButtonStory = Template.bind({});
-ButtonStory.storyName = 'Button';
-ButtonStory.args = {
-  className: '',
-  variant: 'contained',
-  color: 'primary',
-  size: 'medium',
-  disabled: false,
-  text: 'Button',
 };
+
+export const Preview = (args: ButtonProps) => <Button {...args} />;
 
 export const ButtonVariationsStory = () => {
   return (
     <div className="card max-w-800 p-3">
-      <h1 className="text-2xl font-medium mb-2">Buttons</h1>
-
-      <h2 className="text-xl mt-6">Contained Buttons</h2>
-      <div className="mt-1">
+      <ComponentLayout title="Color">
         <Button className="ml-2" color="primary" variant="contained">
           Primary
         </Button>
@@ -48,10 +23,9 @@ export const ButtonVariationsStory = () => {
         <Button className="ml-2" variant="contained" disabled>
           Disabled
         </Button>
-      </div>
+      </ComponentLayout>
 
-      <h2 className="text-xl mt-6">Outlined Buttons</h2>
-      <div className="mt-1">
+      <ComponentLayout title="Outlined Buttons">
         <Button className="ml-2" variant="outlined" color="primary">
           Primary
         </Button>
@@ -61,10 +35,9 @@ export const ButtonVariationsStory = () => {
         <Button className="ml-2" variant="outlined" disabled>
           Disabled
         </Button>
-      </div>
+      </ComponentLayout>
 
-      <h2 className="text-xl mt-6">Text Buttons</h2>
-      <div className="mt-1">
+      <ComponentLayout title="Text Buttons">
         <Button className="ml-2" variant="text" color="primary">
           Primary
         </Button>
@@ -74,52 +47,54 @@ export const ButtonVariationsStory = () => {
         <Button className="ml-2" variant="text" disabled>
           Disabled
         </Button>
-      </div>
+      </ComponentLayout>
 
-      <h2 className="text-xl mt-6">Sizes</h2>
-      <div className="mt-1">
-        <Button variant="contained" color="primary" size="small">
-          Small
-        </Button>
-        <Button
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="medium"
-        >
-          Medium
-        </Button>
-        <Button
-          className="ml-2"
-          variant="contained"
-          color="primary"
-          size="large"
-        >
-          Large
-        </Button>
-      </div>
-      <div className="mt-2">
-        <Button variant="outlined" color="primary" size="small">
-          Small
-        </Button>
-        <Button
-          className="ml-2"
-          variant="outlined"
-          color="primary"
-          size="medium"
-        >
-          Medium
-        </Button>
-        <Button
-          className="ml-2"
-          variant="outlined"
-          color="primary"
-          size="large"
-        >
-          Large
-        </Button>
-      </div>
+      <ComponentLayout title="Sizes">
+        <div>
+          <div className="mt-1">
+            <Button variant="contained" color="primary" size="small">
+              Small
+            </Button>
+            <Button
+              className="ml-2"
+              variant="contained"
+              color="primary"
+              size="medium"
+            >
+              Medium
+            </Button>
+            <Button
+              className="ml-2"
+              variant="contained"
+              color="primary"
+              size="large"
+            >
+              Large
+            </Button>
+          </div>
+          <div className="mt-2">
+            <Button variant="outlined" color="primary" size="small">
+              Small
+            </Button>
+            <Button
+              className="ml-2"
+              variant="outlined"
+              color="primary"
+              size="medium"
+            >
+              Medium
+            </Button>
+            <Button
+              className="ml-2"
+              variant="outlined"
+              color="primary"
+              size="large"
+            >
+              Large
+            </Button>
+          </div>
+        </div>
+      </ComponentLayout>
     </div>
   );
 };
-ButtonVariationsStory.storyName = 'Button Variations';
