@@ -13,7 +13,7 @@ export function Switch({
   className,
   variant = 'thin',
   color = 'primary',
-  label = 'label',
+  label = '',
   size = 'small',
   ...props
 }: SwitchProps) {
@@ -31,7 +31,7 @@ export function Switch({
   };
 
   return (
-    <div>
+    <div className="flex items-center gap-4">
       <div className={SwitchClass} {...props}>
         <div>
           {state && (
@@ -56,11 +56,7 @@ export function Switch({
           )}
         </div>
       </div>
-      {label && (
-        <div text-black text-lg>
-          {label}
-        </div>
-      )}
+      {label && <div className="text-black text-lg">{label}</div>}
     </div>
   );
 }
