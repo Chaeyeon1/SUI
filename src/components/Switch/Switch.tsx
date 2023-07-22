@@ -33,7 +33,7 @@ export function Switch({
 
   return (
     <div className="flex items-center gap-2">
-      <div className={SwitchClass} {...props}>
+      <div className={SwitchClass} {...props} onClick={switching}>
         <div>
           {state && (
             <div
@@ -41,7 +41,6 @@ export function Switch({
                 buttonBaseStyles[size],
                 buttonStyles[variant][color]
               )}
-              onClick={switching}
             ></div>
           )}
         </div>
@@ -52,7 +51,6 @@ export function Switch({
                 buttonBaseStyles[size],
                 buttonStyles[variant][color]
               )}
-              onClick={switching}
             ></div>
           )}
         </div>
