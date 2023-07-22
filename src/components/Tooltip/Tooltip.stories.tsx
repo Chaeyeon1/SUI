@@ -37,20 +37,20 @@ export const ToastVariationsStory = () => {
     setOpenLeft(!openLeft);
   };
 
+  const blackBox = 'relative w-[50px] h-[50px] bg-black';
+
   return (
     <Layout title="Tooltip">
       <ComponentLayout title="color">
-        <div className="flex items-end gap-4">
-          <Tooltip color="primary" direction="top">
-            primary
-          </Tooltip>
-          <Tooltip color="secondary" direction="top">
-            secondary
-          </Tooltip>
-          <Tooltip color="basic" direction="top">
-            basic
-          </Tooltip>
-        </div>
+        <Tooltip color="primary" direction="top">
+          primary
+        </Tooltip>
+        <Tooltip color="secondary" direction="top">
+          secondary
+        </Tooltip>
+        <Tooltip color="basic" direction="top">
+          basic
+        </Tooltip>
       </ComponentLayout>
       <ComponentLayout title="direction">
         <Tooltip color="primary" direction="top">
@@ -85,7 +85,7 @@ export const ToastVariationsStory = () => {
             </Tooltip>
           </div>
           <div
-            className="relative w-[50px] h-[50px] bg-black"
+            className={blackBox}
             onMouseOver={TooltipToggle0}
             onMouseOut={TooltipToggle0}
           >
@@ -100,7 +100,7 @@ export const ToastVariationsStory = () => {
             </Tooltip>
           </div>
           <div
-            className="relative w-[50px] h-[50px] bg-black"
+            className={blackBox}
             onMouseOver={TooltipToggle1}
             onMouseOut={TooltipToggle1}
           >
@@ -115,7 +115,7 @@ export const ToastVariationsStory = () => {
             </Tooltip>
           </div>
           <div
-            className="relative w-[50px] h-[50px] bg-black"
+            className={blackBox}
             onMouseOver={TooltipToggle2}
             onMouseOut={TooltipToggle2}
           >
@@ -132,8 +132,8 @@ export const ToastVariationsStory = () => {
         </div>
       </ComponentLayout>
       <ComponentLayout title="xButton">
-        <div className="flex gap-4 pl-[100px] w-[500px] h-[100px] pt-[80px]">
-          <div className="relative w-[50px] h-[50px] bg-black">
+        <div className="flex gap-4 pl-[100px] w-[500px] h-[100px]">
+          <div className={blackBox}>
             <Tooltip
               color="primary"
               direction="left"
@@ -145,7 +145,7 @@ export const ToastVariationsStory = () => {
               left
             </Tooltip>
           </div>
-          <div className="relative w-[50px] h-[50px] bg-black">
+          <div className={blackBox}>
             <Tooltip
               color="primary"
               direction="top"
@@ -157,7 +157,7 @@ export const ToastVariationsStory = () => {
               top
             </Tooltip>
           </div>
-          <div className="relative w-[50px] h-[50px] bg-black">
+          <div className={blackBox}>
             <Tooltip
               color="primary"
               direction="bottom"
@@ -170,7 +170,7 @@ export const ToastVariationsStory = () => {
             </Tooltip>
           </div>
           <div className="flex gap-[250px]">
-            <div className="relative w-[50px] h-[50px] bg-black">
+            <div className={blackBox}>
               <Tooltip
                 color="primary"
                 direction="right"
