@@ -22,19 +22,19 @@ export const ToastVariationsStory = () => {
   const [openLeft, setOpenLeft] = React.useState(false);
 
   const TooltipToggle0 = () => {
-    setOpenTop && setOpenTop(!openTop);
+    setOpenTop(!openTop);
   };
 
   const TooltipToggle1 = () => {
-    setOpenBottom && setOpenBottom(!openBottom);
+    setOpenBottom(!openBottom);
   };
 
   const TooltipToggle2 = () => {
-    setOpenRight && setOpenRight(!openRight);
+    setOpenRight(!openRight);
   };
 
   const TooltipToggle3 = () => {
-    setOpenLeft && setOpenLeft(!openLeft);
+    setOpenLeft(!openLeft);
   };
 
   return (
