@@ -10,7 +10,22 @@ export default {
   argTypes: { onClick: { action: 'clicked' } },
 };
 
-export const Preview = (args: DialogProps) => <Dialog {...args} />;
+export const Preview = (args: DialogProps) => {
+  const [isOpen10, setIsOpen10] = React.useState(false);
+
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          setIsOpen10(true);
+        }}
+      >
+        click me
+      </Button>
+      <Dialog {...args} open={isOpen10} setOpen={setIsOpen10} />
+    </div>
+  );
+};
 
 export const DialogVariationsStory = () => {
   const [isOpen, setIsOpen] = React.useState(false);
