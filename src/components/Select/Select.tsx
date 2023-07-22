@@ -6,6 +6,7 @@ import {
   inputStyles,
   menuStyles,
   optionStyles,
+  positionAbsolute,
 } from './Select.style';
 import { SelectProps } from './Select.type';
 import { closeHandler } from '../util/closeHandler';
@@ -26,6 +27,10 @@ export const Select = ({
     inputBaseStyles,
     inputStyles[open ? 'open' : 'notOpen'][color]
   );
+  const menuClass = clsx(
+    menuStyles[open ? 'notHidden' : 'hidden'],
+    positionAbsolute
+  );
 
   useEffect(() => {
     document.addEventListener('mousedown', (e) =>
@@ -45,7 +50,11 @@ export const Select = ({
         <div className={InputOptionClass} onClick={() => setOpen(!open)}>
           {selectContent}
         </div>
-        <ul ref={menuRef} className={menuStyles[open ? 'notHidden' : 'hidden']}>
+        <ul
+          ref={menuRef}
+          className={menuClass}
+          style={{ position: 'absolute', zIndex: 100 }}
+        >
           {options?.map((option) => (
             <li
               key={option.id}
