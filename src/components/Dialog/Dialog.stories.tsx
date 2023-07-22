@@ -1,115 +1,230 @@
 import * as React from 'react';
-import { Story, Meta } from '@storybook/react';
 import { Dialog } from './Dialog';
+import { Button } from '../Button';
+import { DialogProps } from './Dialog.type';
+import { ComponentLayout, Layout } from '../Layout';
 
 export default {
   title: 'Components/Dialog',
   component: Dialog,
   argTypes: { onClick: { action: 'clicked' } },
-} as Meta;
-
-const Template: Story = (args) => (
-  <Dialog
-    className={args.className}
-    size={args.size}
-    color={args.color}
-    open={args.open}
-    title={args.title}
-    content={args.content}
-    action1={args.action1}
-    action2={args.action2}
-  ></Dialog>
-);
-
-export const DialogStory = Template.bind({});
-DialogStory.storyName = 'Dialog';
-DialogStory.args = {
-  className: '',
-  color: 'primary',
-  size: 'medium',
-  open: false,
-  title: 'title',
-  content: 'content',
-  action1: 'action',
-  action2: 'action',
 };
 
-export const DialogVariationsStory = () => {
+export const Preview = (args: DialogProps) => {
+  const [isOpen10, setIsOpen10] = React.useState(false);
+
   return (
-    <div className="card max-w-800 p-3">
-      <h1 className="text-2xl font-medium mb-2">Dialog</h1>
-      <h2 className="text-xl mt-6 ">color style</h2>
-      <div className="flex items-end gap-4">
-        <Dialog
-          color="primary"
-          size="small"
-          title="title"
-          content="primary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="secondary"
-          size="small"
-          title="title"
-          content="secondary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightPrimary"
-          size="small"
-          title="title"
-          content="light primary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightSecondary"
-          size="small"
-          title="title"
-          content="light secondary"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="basic"
-          size="small"
-          title="title"
-          content="basic"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-      </div>
-      <h2 className="text-xl mt-6 ">size</h2>
-      <div className="flex items-end gap-4">
-        <Dialog
-          color="lightSecondary"
-          size="small"
-          title="title"
-          content="small"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightSecondary"
-          size="medium"
-          title="title"
-          content="medium"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-        <Dialog
-          color="lightSecondary"
-          size="large"
-          title="title"
-          content="large"
-          action1="action1"
-          action2="action2"
-        ></Dialog>
-      </div>
+    <div>
+      <Button
+        onClick={() => {
+          setIsOpen10(true);
+        }}
+      >
+        click me
+      </Button>
+      <Dialog {...args} open={isOpen10} setOpen={setIsOpen10} />
     </div>
   );
 };
 
-DialogVariationsStory.storyName = 'Dialog Variations';
+export const DialogVariationsStory = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen2, setIsOpen2] = React.useState(false);
+  const [isOpen3, setIsOpen3] = React.useState(false);
+  const [isOpen4, setIsOpen4] = React.useState(false);
+  const [isOpen5, setIsOpen5] = React.useState(false);
+  const [isOpen6, setIsOpen6] = React.useState(false);
+  const [isOpen7, setIsOpen7] = React.useState(false);
+  const [isOpen8, setIsOpen8] = React.useState(false);
+  const [isOpen9, setIsOpen9] = React.useState(false);
+
+  return (
+    <Layout title="Dialog">
+      <ComponentLayout title="dark">
+        <Button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="dark"
+          size="small"
+          open={isOpen}
+          setOpen={setIsOpen}
+          title="title"
+          content="primary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+        <Button
+          color="secondary"
+          onClick={() => {
+            setIsOpen2(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="secondary"
+          brightness="dark"
+          size="small"
+          open={isOpen2}
+          setOpen={setIsOpen2}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+      </ComponentLayout>
+      <ComponentLayout title="light">
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen3(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="light"
+          size="small"
+          open={isOpen3}
+          setOpen={setIsOpen3}
+          title="title"
+          content="primary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+        <Button
+          color="secondary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen4(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="secondary"
+          brightness="light"
+          size="small"
+          open={isOpen4}
+          setOpen={setIsOpen4}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+      </ComponentLayout>
+      <ComponentLayout title="white">
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen5(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="white"
+          size="small"
+          open={isOpen5}
+          setOpen={setIsOpen5}
+          title="title"
+          content="primary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+        <Button
+          color="secondary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen6(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="secondary"
+          brightness="white"
+          size="small"
+          open={isOpen6}
+          setOpen={setIsOpen6}
+          title="title"
+          content="secondary"
+          confirm="confirm"
+          cancel="cancel"
+        />
+      </ComponentLayout>
+      <ComponentLayout title="sizes">
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen7(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="white"
+          size="small"
+          open={isOpen7}
+          setOpen={setIsOpen7}
+          title="title"
+          content="small"
+          confirm="confirm"
+          cancel="cancel"
+        />
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen8(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="white"
+          size="medium"
+          open={isOpen8}
+          setOpen={setIsOpen8}
+          title="title"
+          content="medium"
+          confirm="confirm"
+          cancel="cancel"
+        />
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            setIsOpen9(true);
+          }}
+        >
+          click me
+        </Button>
+        <Dialog
+          color="primary"
+          brightness="white"
+          size="large"
+          open={isOpen9}
+          setOpen={setIsOpen9}
+          title="title"
+          content="large"
+          confirm="confirm"
+          cancel="cancel"
+        />
+      </ComponentLayout>
+    </Layout>
+  );
+};
