@@ -1,5 +1,5 @@
 export const baseStyles =
-  'z-100 drop-shadow-lg flex flex-col justify-between bg-opacity-100';
+  'z-200 drop-shadow-lg flex flex-col justify-between bg-opacity-100';
 
 export const brightnessStyles = {
   primary: {
