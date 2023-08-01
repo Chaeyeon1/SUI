@@ -1,7 +1,7 @@
 export const variantStyles = {
-    thin: 'h-[10px] flex items-center justify-between',
-    normal: 'h-[20px] rounded-full flex items-center justify-between',
-    bold: 'h-[45px] rounded-full flex items-center justify-between px-[3px] shadow-inner shadow-gray-700',
+    thin: 'h-[10px] flex items-center justify-between cursor-pointer',
+    normal: 'h-[20px] rounded-full flex items-center justify-between cursor-pointer',
+    bold: 'h-[45px] rounded-full flex items-center justify-between px-[3px] shadow-inner shadow-gray-700 cursor-pointer',
   };
 
   export const colorStyles = {
@@ -25,6 +25,12 @@ export const sizeStyles = {
     small: 'w-[60px]',
     medium: 'w-[70px]',
     large: 'w-[80px]',
+  };
+
+  export const textSizeStyles = {
+    small: 'text-black text-lg',
+    medium: 'text-black text-xl',
+    large: 'text-black text-2xl',
   };
   
   export const buttonBaseStyles = {
